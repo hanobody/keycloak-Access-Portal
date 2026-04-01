@@ -52,6 +52,17 @@ const fallbackApps: PortalApp[] = [
     tags: ["Cloudflare", "Zero Trust"],
     external: true,
   },
+  {
+    id: "imperva",
+    name: "Imperva",
+    description: "进入 Imperva，通过企业 SSO 登录。",
+    href: "https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva",
+    icon: "🛡️",
+    badge: "SAML",
+    groupsAny: ["imperva"],
+    tags: ["Imperva", "Security", "WAF"],
+    external: true,
+  },
 ];
 
 const normalize = (value: string) => value.trim().toLowerCase();

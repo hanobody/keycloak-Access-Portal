@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Cloud, ShieldCheck, X } from "lucide-react";
-import type { PortalApp } from "@/lib/apps";
+import { getVisibleApps, type PortalApp } from "@/lib/apps";
 import { SignOutButton } from "@/components/sign-out-button";
 import { BrandMark } from "@/components/brand-mark";
 import type { PortalSession } from "@/lib/session";
@@ -42,16 +42,15 @@ export function ClientHome({ apps, session }: { apps: PortalApp[]; session: Port
     };
   }, [open]);
 
-  const visibleApps = useMemo(
-    () =>
-      apps.filter((app) => {
-        if (app.id === "aws-sso") return session.user.canAccessAws;
-        if (app.id === "aliyun-sso") return session.user.canAccessAliyun;
-        if (app.id === "cloudflare") return session.user.canAccessCloudflare;
-        return true;
-      }),
-    [apps, session.user.canAccessAliyun, session.user.canAccessAws, session.user.canAccessCloudflare],
-  );
+  const visibleApps = useMemo(() => {
+    const attributeHints: Record<string, string | string[]> = {};
+    if (session.user.canAccessAws) attributeHints.awsRole = "present";
+    if (session.user.canAccessAliyun) attributeHints.aliyunRole = "present";
+
+    return getVisibleApps(session.user.groups ?? [], attributeHints).filter((app) =>
+      apps.some((candidate) => candidate.id === app.id),
+    );
+  }, [apps, session.user.canAccessAliyun, session.user.canAccessAws, session.user.groups]);
 
   return (
     <main className="min-h-screen bg-background px-6 py-8 sm:px-8 lg:px-10">
