@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Cloud, ShieldCheck, X } from "lucide-react";
-import { getVisibleApps, type PortalApp } from "@/lib/apps";
+import type { PortalApp } from "@/lib/apps";
 import { SignOutButton } from "@/components/sign-out-button";
 import { BrandMark } from "@/components/brand-mark";
 import type { PortalSession } from "@/lib/session";
@@ -43,14 +43,22 @@ export function ClientHome({ apps, session }: { apps: PortalApp[]; session: Port
   }, [open]);
 
   const visibleApps = useMemo(() => {
-    const attributeHints: Record<string, string | string[]> = {};
-    if (session.user.canAccessAws) attributeHints.awsRole = "present";
-    if (session.user.canAccessAliyun) attributeHints.aliyunRole = "present";
+    const normalizedGroups = (session.user.groups ?? []).map((group) => group.trim().toLowerCase());
 
-    return getVisibleApps(session.user.groups ?? [], attributeHints).filter((app) =>
-      apps.some((candidate) => candidate.id === app.id),
-    );
-  }, [apps, session.user.canAccessAliyun, session.user.canAccessAws, session.user.groups]);
+    return apps.filter((app) => {
+      if (app.id === "aws-sso") return session.user.canAccessAws;
+      if (app.id === "aliyun-sso") return session.user.canAccessAliyun;
+      if (app.id === "cloudflare") return session.user.canAccessCloudflare;
+
+      const groupsAny = (app.groupsAny ?? []).map((group) => group.trim().toLowerCase());
+      const groupsAll = (app.groupsAll ?? []).map((group) => group.trim().toLowerCase());
+
+      const anyMatched = groupsAny.length === 0 || groupsAny.some((group) => normalizedGroups.includes(group));
+      const allMatched = groupsAll.length === 0 || groupsAll.every((group) => normalizedGroups.includes(group));
+
+      return anyMatched && allMatched;
+    });
+  }, [apps, session.user.canAccessAliyun, session.user.canAccessAws, session.user.canAccessCloudflare, session.user.groups]);
 
   return (
     <main className="min-h-screen bg-background px-6 py-8 sm:px-8 lg:px-10">
