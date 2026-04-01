@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: access-portal
+  namespace: access-portal
+spec:
+  selector:
+    app: access-portal
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
