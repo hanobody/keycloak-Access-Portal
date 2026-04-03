@@ -33,12 +33,22 @@ data:
       {
         "id": "cloudflare",
         "name": "Cloudflare Dashboard",
-        "description": "进入 Cloudflare 官方控制台，通过企业 SSO 完成身份校验。",
+        "description": "输入企业邮箱完成登陆，需邀请",
         "href": "https://dash.cloudflare.com/",
-        "icon": "🛡️",
+        "icon": "🛡",
         "badge": "Cloudflare",
-        "groupsAny": ["cloudflare", "cloudflare-access", "devops", "platform", "cloud-admin"],
+        "groupsAny": ["cloudflare"],
         "tags": ["Cloudflare", "Zero Trust"],
+        "external": true
+      },
+      {
+        "id": "zoho-mail",
+        "name": "Zoho Mail",
+        "description": "输入企业邮箱即可完成SSO登陆",
+        "href": "https://mail.zoho.eu/zm/",
+        "icon": "✉️",
+        "badge": "Mail",
+        "tags": ["Zoho", "Mail", "SSO"],
         "external": true
       },
       {
@@ -46,7 +56,7 @@ data:
         "name": "Imperva",
         "description": "进入 Imperva，通过企业 SSO 登录。",
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva",
-        "icon": "🛡️",
+        "icon": "🛡",
         "badge": "SAML",
         "groupsAny": ["imperva"],
         "tags": ["Imperva", "Security", "WAF"],
