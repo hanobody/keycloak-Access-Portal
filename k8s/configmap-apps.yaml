@@ -4,6 +4,30 @@ metadata:
   name: access-portal-apps
   namespace: keycloak
 data:
+  tabs.runtime.json: |
+    {
+      "defaultTabId": "cloud-infra",
+      "tabs": [
+        {
+          "id": "cloud-infra",
+          "name": "云设施",
+          "description": "云平台、账号体系与基础设施入口。",
+          "groupsAny": ["cloud-infra", "devops", "platform", "cloud-admin"]
+        },
+        {
+          "id": "intl-business",
+          "name": "国际盘",
+          "description": "国际业务相关系统入口。",
+          "groupsAny": ["intl-business"]
+        },
+        {
+          "id": "ld-project",
+          "name": "LD项目",
+          "description": "LD 项目相关系统入口。",
+          "groupsAny": ["ld-project"]
+        }
+      ]
+    }
   apps.runtime.json: |
     [
       {
@@ -13,6 +37,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/aws",
         "icon": "☁️",
         "badge": "AWS SSO",
+        "tabId": "cloud-infra",
         "requiredAttributesAny": ["awsRole"],
         "groupsAny": ["aws", "aws-access", "devops", "platform", "cloud-admin"],
         "tags": ["AWS", "IAM", "SAML"],
@@ -25,6 +50,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun",
         "icon": "🌀",
         "badge": "Aliyun SSO",
+        "tabId": "cloud-infra",
         "requiredAttributesAny": ["aliyunRole"],
         "groupsAny": ["aliyun", "aliyun-access", "devops", "platform", "cloud-admin"],
         "tags": ["Aliyun", "RAM", "SAML"],
@@ -37,6 +63,7 @@ data:
         "href": "https://dash.cloudflare.com/",
         "icon": "🛡",
         "badge": "Cloudflare",
+        "tabId": "cloud-infra",
         "groupsAny": ["cloudflare"],
         "tags": ["Cloudflare", "Zero Trust"],
         "external": true
@@ -48,6 +75,7 @@ data:
         "href": "https://mail.zoho.eu/zm/",
         "icon": "✉️",
         "badge": "Mail",
+        "tabId": "intl-business",
         "tags": ["Zoho", "Mail", "SSO"],
         "external": true
       },
@@ -58,6 +86,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva",
         "icon": "🛡",
         "badge": "SAML",
+        "tabId": "cloud-infra",
         "groupsAny": ["imperva"],
         "tags": ["Imperva", "Security", "WAF"],
         "external": true

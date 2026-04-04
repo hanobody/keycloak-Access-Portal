@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: doctor8181/access-portal:ui-v3-c0043a9
+          image: doctor8181/access-portal:imperva-v1-c35b37f
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
@@ -29,10 +29,15 @@ spec:
           env:
             - name: PORTAL_APPS_CONFIG_PATH
               value: /app/config/apps.runtime.json
+            - name: PORTAL_TABS_CONFIG_PATH
+              value: /app/config/tabs.runtime.json
           volumeMounts:
             - name: apps-config
               mountPath: /app/config/apps.runtime.json
               subPath: apps.runtime.json
+            - name: apps-config
+              mountPath: /app/config/tabs.runtime.json
+              subPath: tabs.runtime.json
           readinessProbe:
             httpGet:
               path: /signin
