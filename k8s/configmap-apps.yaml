@@ -6,25 +6,25 @@ metadata:
 data:
   tabs.runtime.json: |
     {
-      "defaultTabId": "cloud-infra",
+      "defaultTabId": "tab-cloud",
       "tabs": [
         {
-          "id": "cloud-infra",
+          "id": "tab-cloud",
           "name": "云设施",
           "description": "云平台、账号体系与基础设施入口。",
-          "groupsAny": ["cloud-infra", "devops", "platform", "cloud-admin"]
+          "groupsAny": ["tab-cloud"]
         },
         {
-          "id": "intl-business",
+          "id": "tab-intel",
           "name": "国际盘",
           "description": "国际业务相关系统入口。",
-          "groupsAny": ["intl-business"]
+          "groupsAny": ["tab-intel"]
         },
         {
-          "id": "ld-project",
+          "id": "tab-ld",
           "name": "LD项目",
           "description": "LD 项目相关系统入口。",
-          "groupsAny": ["ld-project"]
+          "groupsAny": ["tab-ld"]
         }
       ]
     }
@@ -37,7 +37,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/aws",
         "icon": "☁️",
         "badge": "AWS SSO",
-        "tabId": "cloud-infra",
+        "tabId": "tab-cloud",
         "requiredAttributesAny": ["awsRole"],
         "groupsAny": ["aws", "aws-access", "devops", "platform", "cloud-admin"],
         "tags": ["AWS", "IAM", "SAML"],
@@ -50,7 +50,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun",
         "icon": "🌀",
         "badge": "Aliyun SSO",
-        "tabId": "cloud-infra",
+        "tabId": "tab-cloud",
         "requiredAttributesAny": ["aliyunRole"],
         "groupsAny": ["aliyun", "aliyun-access", "devops", "platform", "cloud-admin"],
         "tags": ["Aliyun", "RAM", "SAML"],
@@ -63,7 +63,7 @@ data:
         "href": "https://dash.cloudflare.com/",
         "icon": "🛡",
         "badge": "Cloudflare",
-        "tabId": "cloud-infra",
+        "tabId": "tab-cloud",
         "groupsAny": ["cloudflare"],
         "tags": ["Cloudflare", "Zero Trust"],
         "external": true
@@ -75,8 +75,118 @@ data:
         "href": "https://mail.zoho.eu/zm/",
         "icon": "✉️",
         "badge": "Mail",
-        "tabId": "intl-business",
+        "tabId": "tab-cloud",
         "tags": ["Zoho", "Mail", "SSO"],
+        "external": true
+      },
+      {
+        "id": "us-prod-logs",
+        "name": "美国生产环境日志查询",
+        "description": "国际盘美国生产环境日志查询入口。",
+        "href": "https://vilogs-us.vpbet.eu.com/",
+        "icon": "📜",
+        "badge": "Logs",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "Logs"],
+        "external": true
+      },
+      {
+        "id": "us-prod-grafana",
+        "name": "美国生产环境 Grafana",
+        "description": "国际盘美国生产环境 Grafana 监控入口。",
+        "href": "https://grafana-us.vpbet.eu.com/",
+        "icon": "📊",
+        "badge": "Grafana",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "Grafana"],
+        "external": true
+      },
+      {
+        "id": "us-prod-nacos",
+        "name": "美国生产环境 Nacos",
+        "description": "国际盘美国生产环境 Nacos 管理入口。",
+        "href": "https://nacos-us.vpbet.eu.com/nacos",
+        "icon": "🧩",
+        "badge": "Nacos",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "Nacos"],
+        "external": true
+      },
+      {
+        "id": "us-prod-skywalking",
+        "name": "美国生产环境 SkyWalking",
+        "description": "国际盘美国生产环境 SkyWalking 观测入口。",
+        "href": "https://sky-us.vpbet.eu.com/",
+        "icon": "🛰️",
+        "badge": "SkyWalking",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "SkyWalking"],
+        "external": true
+      },
+      {
+        "id": "us-prod-tidb",
+        "name": "美国生产环境 TiDB",
+        "description": "国际盘美国生产环境 TiDB Dashboard。",
+        "href": "https://tidbus.vpbet.eu.com/dashboard/",
+        "icon": "🗄️",
+        "badge": "TiDB",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "TiDB"],
+        "external": true
+      },
+      {
+        "id": "us-prod-tidb-grafana",
+        "name": "美国生产环境 TiDB Grafana",
+        "description": "国际盘美国生产环境 TiDB Grafana 监控入口。",
+        "href": "https://tidbus-grafana.vpbet.eu.com/",
+        "icon": "📈",
+        "badge": "Grafana",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "TiDB", "Grafana"],
+        "external": true
+      },
+      {
+        "id": "us-prod-pg91",
+        "name": "美国生产环境 PG91",
+        "description": "国际盘美国生产环境 PG91 管理入口。",
+        "href": "https://tgbot-admin.vpbet.eu.com/",
+        "icon": "🗃️",
+        "badge": "PG91",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "PG91"],
+        "external": true
+      },
+      {
+        "id": "us-prod-dump",
+        "name": "美国生产环境 Dump 文件获取",
+        "description": "国际盘美国生产环境 Dump 文件获取入口。",
+        "href": "https://dumpus.vpbet.eu.com/",
+        "icon": "📦",
+        "badge": "Dump",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "Dump"],
+        "external": true
+      },
+      {
+        "id": "us-prod-mq-admin",
+        "name": "美国生产环境 MQ 管理后台",
+        "description": "国际盘美国生产环境 MQ 管理后台入口。",
+        "href": "https://area-mq-us.vpbet.eu.com/",
+        "icon": "📨",
+        "badge": "MQ",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "MQ"],
+        "external": true
+      },
+      {
+        "id": "us-prod-xxl-job-admin",
+        "name": "美国生产环境 XXL-Job Admin",
+        "description": "国际盘美国生产环境 XXL-Job Admin 入口。",
+        "href": "https://jobadmin-us.vpbet.eu.com/xxl-job-admin/toLogin",
+        "icon": "⏰",
+        "badge": "XXL-Job",
+        "tabId": "tab-intel",
+        "tags": ["US", "Prod", "XXL-Job"],
         "external": true
       },
       {
@@ -86,7 +196,7 @@ data:
         "href": "https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva",
         "icon": "🛡",
         "badge": "SAML",
-        "tabId": "cloud-infra",
+        "tabId": "tab-ld",
         "groupsAny": ["imperva"],
         "tags": ["Imperva", "Security", "WAF"],
         "external": true
