@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Cloud, ShieldCheck, X } from "lucide-react";
 import { hasAttributeValue, type UserAttributes } from "@/lib/user-attributes";
-import type { PortalApp, PortalTab } from "@/lib/apps";
+import type { PortalApp, PortalTab, PortalTabSection } from "@/lib/apps";
 import { SignOutButton } from "@/components/sign-out-button";
 import { BrandMark } from "@/components/brand-mark";
 import type { PortalSession } from "@/lib/session";
@@ -54,6 +54,33 @@ function TabButton({
   );
 }
 
+function SectionButton({
+  section,
+  active,
+  onClick,
+  count,
+}: {
+  section: PortalTabSection;
+  active: boolean;
+  onClick: () => void;
+  count: number;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`rounded-xl border px-3 py-2 text-sm transition ${
+        active
+          ? "border-sky-400/40 bg-sky-400/10 text-white"
+          : "border-white/10 bg-white/5 text-slate-300 hover:border-white/20 hover:bg-white/10 hover:text-white"
+      }`}
+    >
+      <span>{section.name}</span>
+      <span className="ml-2 rounded-full border border-white/10 bg-black/20 px-2 py-0.5 text-xs text-slate-300">{count}</span>
+    </button>
+  );
+}
+
 function matchesVisibilityRules(
   normalizedGroups: string[],
   userAttributes: UserAttributes,
@@ -67,12 +94,27 @@ function matchesVisibilityRules(
   const groupsAll = (item.groupsAll ?? []).map((group) => group.trim().toLowerCase());
   const requiredAttributesAny = item.requiredAttributesAny ?? [];
 
+  const hasGroupRules = groupsAny.length > 0 || groupsAll.length > 0;
+  const hasAttributeRules = requiredAttributesAny.length > 0;
+
   const anyMatched = groupsAny.length === 0 || groupsAny.some((group) => normalizedGroups.includes(group));
   const allMatched = groupsAll.length === 0 || groupsAll.every((group) => normalizedGroups.includes(group));
-  const attributeMatched =
-    requiredAttributesAny.length === 0 || requiredAttributesAny.some((key) => hasAttributeValue(userAttributes, key));
+  const groupMatched = anyMatched && allMatched;
+  const attributeMatched = requiredAttributesAny.some((key) => hasAttributeValue(userAttributes, key));
 
-  return attributeMatched || (anyMatched && allMatched);
+  if (hasGroupRules && hasAttributeRules) {
+    return groupMatched || attributeMatched;
+  }
+
+  if (hasGroupRules) {
+    return groupMatched;
+  }
+
+  if (hasAttributeRules) {
+    return attributeMatched;
+  }
+
+  return true;
 }
 
 export function ClientHome({
@@ -111,10 +153,7 @@ export function ClientHome({
     [session.user.groups],
   );
 
-  const userAttributes = useMemo(
-    () => session.user.attributes ?? {},
-    [session.user.attributes],
-  );
+  const userAttributes = useMemo(() => session.user.attributes ?? {}, [session.user.attributes]);
 
   const visibleApps = useMemo(() => {
     return apps.filter((app) => {
@@ -127,10 +166,14 @@ export function ClientHome({
   }, [apps, normalizedGroups, session.user.canAccessAliyun, session.user.canAccessAws, session.user.canAccessCloudflare, userAttributes]);
 
   const normalizedTabs = useMemo(() => {
-    const sourceTabs = tabs.length > 0 ? tabs : [{ id: "cloud-infra", name: "云设施" }];
+    const sourceTabs = tabs.length > 0 ? tabs : [{ id: "cloud-infra", name: "云设施", sections: [{ id: "default", name: "默认" }] }];
 
     return sourceTabs
-      .map((tab) => ({ ...tab, id: tab.id.trim() }))
+      .map((tab) => ({
+        ...tab,
+        id: tab.id.trim(),
+        sections: Array.isArray(tab.sections) && tab.sections.length > 0 ? tab.sections : undefined,
+      }))
       .filter((tab) => matchesVisibilityRules(normalizedGroups, userAttributes, tab));
   }, [normalizedGroups, tabs, userAttributes]);
 
@@ -150,8 +193,22 @@ export function ClientHome({
     }
   }, [activeTabId, defaultTabId, normalizedTabs]);
 
+  const activeTab = normalizedTabs.find((tab) => tab.id === activeTabId);
+  const activeSections = activeTab?.sections ?? [];
+  const fallbackSectionId = activeSections[0]?.id;
+  const [activeSectionId, setActiveSectionId] = useState<string | undefined>(fallbackSectionId);
+
+  useEffect(() => {
+    const nextSectionId = activeSections.some((section) => section.id === activeSectionId)
+      ? activeSectionId
+      : activeSections[0]?.id;
+
+    if (nextSectionId !== activeSectionId) {
+      setActiveSectionId(nextSectionId);
+    }
+  }, [activeSectionId, activeSections]);
+
   const appsByTab = useMemo(() => {
-    const firstTabId = normalizedTabs[0]?.id;
     const map = new Map<string, PortalApp[]>();
 
     normalizedTabs.forEach((tab) => {
@@ -159,16 +216,51 @@ export function ClientHome({
     });
 
     visibleApps.forEach((app) => {
-      const targetTabId = app.tabId && map.has(app.tabId) ? app.tabId : firstTabId;
-      if (!targetTabId) return;
-      map.get(targetTabId)?.push(app);
+      if (app.tabId) {
+        if (map.has(app.tabId)) {
+          map.get(app.tabId)?.push(app);
+        }
+        return;
+      }
+
+      const fallbackTabId = normalizedTabs[0]?.id;
+      if (fallbackTabId) {
+        map.get(fallbackTabId)?.push(app);
+      }
     });
 
     return map;
   }, [normalizedTabs, visibleApps]);
 
   const activeApps = activeTabId ? appsByTab.get(activeTabId) ?? [] : visibleApps;
-  const activeTab = normalizedTabs.find((tab) => tab.id === activeTabId);
+
+  const appsBySection = useMemo(() => {
+    const map = new Map<string, PortalApp[]>();
+
+    activeSections.forEach((section) => {
+      map.set(section.id, []);
+    });
+
+    activeApps.forEach((app) => {
+      if (!activeSections.length) return;
+
+      if (app.sectionId) {
+        if (map.has(app.sectionId)) {
+          map.get(app.sectionId)?.push(app);
+        }
+        return;
+      }
+
+      const defaultSectionId = activeSections[0]?.id;
+      if (defaultSectionId) {
+        map.get(defaultSectionId)?.push(app);
+      }
+    });
+
+    return map;
+  }, [activeApps, activeSections]);
+
+  const displayedApps = activeSections.length > 0 ? appsBySection.get(activeSectionId ?? "") ?? [] : activeApps;
 
   if (normalizedTabs.length === 0) {
     return (
@@ -238,7 +330,8 @@ export function ClientHome({
                   {
                     user: session.user,
                     activeTabId,
-                    visibleApps: visibleApps.map((app) => ({ id: app.id, tabId: app.tabId })),
+                    activeSectionId,
+                    visibleApps: visibleApps.map((app) => ({ id: app.id, tabId: app.tabId, sectionId: app.sectionId })),
                   },
                   null,
                   2,
@@ -268,12 +361,26 @@ export function ClientHome({
                   <h1 className="text-2xl font-semibold text-white">{activeTab?.name ?? "应用入口"}</h1>
                   {activeTab?.description ? <p className="mt-2 text-sm text-slate-400">{activeTab.description}</p> : null}
                 </div>
-                <div className="text-sm text-slate-500">共 {activeApps.length} 个入口</div>
+                <div className="text-sm text-slate-500">共 {displayedApps.length} 个入口</div>
               </div>
 
-              {activeApps.length > 0 ? (
+              {activeSections.length > 0 ? (
+                <div className="mb-6 flex flex-wrap gap-3">
+                  {activeSections.map((section) => (
+                    <SectionButton
+                      key={section.id}
+                      section={section}
+                      active={section.id === activeSectionId}
+                      onClick={() => setActiveSectionId(section.id)}
+                      count={appsBySection.get(section.id)?.length ?? 0}
+                    />
+                  ))}
+                </div>
+              ) : null}
+
+              {displayedApps.length > 0 ? (
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {activeApps.map((app) => (
+                  {displayedApps.map((app) => (
                     <Link
                       key={app.id}
                       href={app.href}
@@ -296,7 +403,7 @@ export function ClientHome({
                 </div>
               ) : (
                 <div className="rounded-[24px] border border-dashed border-white/10 bg-slate-950/30 p-8 text-sm text-slate-400">
-                  当前 TAB 下暂无可显示的应用入口。
+                  当前选中菜单下暂无可显示的应用入口。
                 </div>
               )}
             </div>

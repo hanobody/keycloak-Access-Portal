@@ -1,0 +1,140 @@
+apiVersion: v1
+data:
+  apps.runtime.json: "[\n  {\n    \"id\": \"aws-sso\",\n    \"name\": \"AWS Access
+    Portal\",\n    \"description\": \"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\",\n
+    \   \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\",\n
+    \   \"icon\": \"☁️\",\n    \"badge\": \"AWS SSO\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"requiredAttributesAny\": [\"awsRole\"],\n    \"groupsAny\": [\"aws\", \"aws-access\",
+    \"devops\", \"platform\", \"cloud-admin\"],\n    \"tags\": [\"AWS\", \"IAM\",
+    \"SAML\"],\n    \"external\": true\n  },\n  {\n    \"id\": \"aliyun-sso\",\n    \"name\":
+    \"阿里云访问入口\",\n    \"description\": \"进入阿里云 SSO，根据你的 Keycloak 角色属性查看可访问账号与角色。\",\n
+    \   \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\",\n
+    \   \"icon\": \"\U0001F300\",\n    \"badge\": \"Aliyun SSO\",\n    \"tabId\":
+    \"tab-cloud\",\n    \"requiredAttributesAny\": [\"aliyunRole\"],\n    \"groupsAny\":
+    [\"aliyun\", \"aliyun-access\", \"devops\", \"platform\", \"cloud-admin\"],\n
+    \   \"tags\": [\"Aliyun\", \"RAM\", \"SAML\"],\n    \"external\": true\n  },\n
+    \ {\n    \"id\": \"cloudflare\",\n    \"name\": \"Cloudflare Dashboard\",\n    \"description\":
+    \"输入企业邮箱完成登陆，需邀请\",\n    \"href\": \"https://dash.cloudflare.com/\",\n    \"icon\":
+    \"\U0001F6E1\",\n    \"badge\": \"Cloudflare\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"groupsAny\": [\"cloudflare\"],\n    \"tags\": [\"Cloudflare\", \"Zero Trust\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"zoho-mail\",\n    \"name\": \"Zoho
+    Mail\",\n    \"description\": \"输入企业邮箱即可完成SSO登陆\",\n    \"href\": \"https://mail.zoho.eu/zm/\",\n
+    \   \"icon\": \"✉️\",\n    \"badge\": \"Mail\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"tags\": [\"Zoho\", \"Mail\", \"SSO\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"imperva\",\n    \"name\": \"Imperva\",\n    \"description\": \"进入
+    Imperva，通过企业 SSO 登录。\",\n    \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\",\n
+    \   \"icon\": \"\U0001F6E1\",\n    \"badge\": \"SAML\",\n    \"tabId\": \"tab-ld\",\n
+    \   \"groupsAny\": [\"imperva\"],\n    \"tags\": [\"Imperva\", \"Security\", \"WAF\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"us-prod-logs\",\n    \"name\":
+    \"美国生产环境日志查询\",\n    \"description\": \"国际盘美国生产环境日志查询入口。\",\n    \"href\": \"https://vilogs-us.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4DC\",\n    \"badge\": \"Logs\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"Logs\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-grafana\",\n    \"name\": \"美国生产环境 Grafana\",\n    \"description\":
+    \"国际盘美国生产环境 Grafana 监控入口。\",\n    \"href\": \"https://grafana-us.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4CA\",\n    \"badge\": \"Grafana\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"Grafana\"],\n    \"external\": true\n  },\n
+    \ {\n    \"id\": \"us-prod-nacos\",\n    \"name\": \"美国生产环境 Nacos\",\n    \"description\":
+    \"国际盘美国生产环境 Nacos 管理入口。\",\n    \"href\": \"https://nacos-us.vpbet.eu.com/nacos\",\n
+    \   \"icon\": \"\U0001F9E9\",\n    \"badge\": \"Nacos\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"Nacos\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-skywalking\",\n    \"name\": \"美国生产环境 SkyWalking\",\n    \"description\":
+    \"国际盘美国生产环境 SkyWalking 观测入口。\",\n    \"href\": \"https://sky-us.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F6F0️\",\n    \"badge\": \"SkyWalking\",\n    \"tabId\":
+    \"tab-intel\",\n    \"tags\": [\"US\", \"Prod\", \"SkyWalking\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"us-prod-tidb\",\n    \"name\": \"美国生产环境 TiDB\",\n
+    \   \"description\": \"国际盘美国生产环境 TiDB Dashboard。\",\n    \"href\": \"https://tidbus.vpbet.eu.com/dashboard/\",\n
+    \   \"icon\": \"\U0001F5C4️\",\n    \"badge\": \"TiDB\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"TiDB\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-tidb-grafana\",\n    \"name\": \"美国生产环境 TiDB Grafana\",\n
+    \   \"description\": \"国际盘美国生产环境 TiDB Grafana 监控入口。\",\n    \"href\": \"https://tidbus-grafana.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4C8\",\n    \"badge\": \"Grafana\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"TiDB\", \"Grafana\"],\n    \"external\": true\n
+    \ },\n  {\n    \"id\": \"us-prod-pg91\",\n    \"name\": \"美国生产环境 PG91\",\n    \"description\":
+    \"国际盘美国生产环境 PG91 管理入口。\",\n    \"href\": \"https://tgbot-admin.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F5C3️\",\n    \"badge\": \"PG91\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"PG91\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-dump\",\n    \"name\": \"美国生产环境 Dump 文件获取\",\n    \"description\":
+    \"国际盘美国生产环境 Dump 文件获取入口。\",\n    \"href\": \"https://dumpus.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4E6\",\n    \"badge\": \"Dump\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"Dump\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-mq-admin\",\n    \"name\": \"美国生产环境 MQ 管理后台\",\n    \"description\":
+    \"国际盘美国生产环境 MQ 管理后台入口。\",\n    \"href\": \"https://area-mq-us.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4E8\",\n    \"badge\": \"MQ\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"MQ\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-xxl-job-admin\",\n    \"name\": \"美国生产环境 XXL-Job Admin\",\n
+    \   \"description\": \"国际盘美国生产环境 XXL-Job Admin 入口。\",\n    \"href\": \"https://jobadmin-us.vpbet.eu.com/xxl-job-admin/toLogin\",\n
+    \   \"icon\": \"⏰\",\n    \"badge\": \"XXL-Job\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"XXL-Job\"],\n    \"external\": true\n  }\n]\n"
+  tabs.runtime.json: |
+    {
+      "defaultTabId": "tab-cloud",
+      "tabs": [
+        {
+          "id": "tab-cloud",
+          "name": "云设施",
+          "description": "云平台、账号体系与基础设施入口。",
+          "groupsAny": ["tab-cloud"]
+        },
+        {
+          "id": "tab-intel",
+          "name": "国际盘",
+          "description": "国际业务相关系统入口。",
+          "groupsAny": ["tab-intel"]
+        },
+        {
+          "id": "tab-ld",
+          "name": "LD项目",
+          "description": "LD 项目相关系统入口。",
+          "groupsAny": ["tab-ld"]
+        }
+      ]
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: "{\"apiVersion\":\"v1\",\"data\":{\"apps.runtime.json\":\"[\\n
+      \ {\\n    \\\"id\\\": \\\"aws-sso\\\",\\n    \\\"name\\\": \\\"AWS Access Portal\\\",\\n
+      \   \\\"description\\\": \\\"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\\\",\\n
+      \   \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\\\",\\n
+      \   \\\"icon\\\": \\\"☁️\\\",\\n    \\\"badge\\\": \\\"AWS SSO\\\",\\n    \\\"tabId\\\":
+      \\\"cloud-infra\\\",\\n    \\\"requiredAttributesAny\\\": [\\\"awsRole\\\"],\\n
+      \   \\\"groupsAny\\\": [\\\"aws\\\", \\\"aws-access\\\", \\\"devops\\\", \\\"platform\\\",
+      \\\"cloud-admin\\\"],\\n    \\\"tags\\\": [\\\"AWS\\\", \\\"IAM\\\", \\\"SAML\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"aliyun-sso\\\",\\n
+      \   \\\"name\\\": \\\"阿里云访问入口\\\",\\n    \\\"description\\\": \\\"进入阿里云 SSO，根据你的
+      Keycloak 角色属性查看可访问账号与角色。\\\",\\n    \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F300\\\",\\n    \\\"badge\\\": \\\"Aliyun SSO\\\",\\n
+      \   \\\"tabId\\\": \\\"cloud-infra\\\",\\n    \\\"requiredAttributesAny\\\":
+      [\\\"aliyunRole\\\"],\\n    \\\"groupsAny\\\": [\\\"aliyun\\\", \\\"aliyun-access\\\",
+      \\\"devops\\\", \\\"platform\\\", \\\"cloud-admin\\\"],\\n    \\\"tags\\\":
+      [\\\"Aliyun\\\", \\\"RAM\\\", \\\"SAML\\\"],\\n    \\\"external\\\": true\\n
+      \ },\\n  {\\n    \\\"id\\\": \\\"cloudflare\\\",\\n    \\\"name\\\": \\\"Cloudflare
+      Dashboard\\\",\\n    \\\"description\\\": \\\"输入企业邮箱完成登陆，需邀请\\\",\\n    \\\"href\\\":
+      \\\"https://dash.cloudflare.com/\\\",\\n    \\\"icon\\\": \\\"\U0001F6E1\\\",\\n
+      \   \\\"badge\\\": \\\"Cloudflare\\\",\\n    \\\"tabId\\\": \\\"cloud-infra\\\",\\n
+      \   \\\"groupsAny\\\": [\\\"cloudflare\\\"],\\n    \\\"tags\\\": [\\\"Cloudflare\\\",
+      \\\"Zero Trust\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"zoho-mail\\\",\\n    \\\"name\\\": \\\"Zoho Mail\\\",\\n    \\\"description\\\":
+      \\\"输入企业邮箱即可完成SSO登陆\\\",\\n    \\\"href\\\": \\\"https://mail.zoho.eu/zm/\\\",\\n
+      \   \\\"icon\\\": \\\"✉️\\\",\\n    \\\"badge\\\": \\\"Mail\\\",\\n    \\\"tabId\\\":
+      \\\"intl-business\\\",\\n    \\\"tags\\\": [\\\"Zoho\\\", \\\"Mail\\\", \\\"SSO\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"imperva\\\",\\n
+      \   \\\"name\\\": \\\"Imperva\\\",\\n    \\\"description\\\": \\\"进入 Imperva，通过企业
+      SSO 登录。\\\",\\n    \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E1\\\",\\n    \\\"badge\\\": \\\"SAML\\\",\\n
+      \   \\\"tabId\\\": \\\"cloud-infra\\\",\\n    \\\"groupsAny\\\": [\\\"imperva\\\"],\\n
+      \   \\\"tags\\\": [\\\"Imperva\\\", \\\"Security\\\", \\\"WAF\\\"],\\n    \\\"external\\\":
+      true\\n  }\\n]\\n\",\"tabs.runtime.json\":\"{\\n  \\\"defaultTabId\\\": \\\"cloud-infra\\\",\\n
+      \ \\\"tabs\\\": [\\n    {\\n      \\\"id\\\": \\\"cloud-infra\\\",\\n      \\\"name\\\":
+      \\\"云设施\\\",\\n      \\\"description\\\": \\\"云平台、账号体系与基础设施入口。\\\",\\n      \\\"groupsAny\\\":
+      [\\\"cloud-infra\\\", \\\"devops\\\", \\\"platform\\\", \\\"cloud-admin\\\"]\\n
+      \   },\\n    {\\n      \\\"id\\\": \\\"intl-business\\\",\\n      \\\"name\\\":
+      \\\"国际盘\\\",\\n      \\\"description\\\": \\\"国际业务相关系统入口。\\\",\\n      \\\"groupsAny\\\":
+      [\\\"intl-business\\\"]\\n    },\\n    {\\n      \\\"id\\\": \\\"ld-project\\\",\\n
+      \     \\\"name\\\": \\\"LD项目\\\",\\n      \\\"description\\\": \\\"LD 项目相关系统入口。\\\",\\n
+      \     \\\"groupsAny\\\": [\\\"ld-project\\\"]\\n    }\\n  ]\\n}\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{},\"name\":\"access-portal-apps\",\"namespace\":\"keycloak\"}}\n"
+  creationTimestamp: "2026-03-31T14:15:14Z"
+  name: access-portal-apps
+  namespace: keycloak
+  resourceVersion: "34253614"
+  uid: 43a7dcd9-fd77-4586-9dca-6019b1c9e523

@@ -1,0 +1,437 @@
+apiVersion: v1
+data:
+  apps.runtime.json: "[\n  {\n    \"id\": \"aws-sso\",\n    \"name\": \"AWS Access
+    Portal\",\n    \"description\": \"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\",\n
+    \   \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\",\n
+    \   \"icon\": \"☁️\",\n    \"badge\": \"AWS SSO\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"requiredAttributesAny\": [\"awsRole\"],\n    \"groupsAny\": [\"aws\", \"aws-access\",
+    \"devops\", \"platform\", \"cloud-admin\"],\n    \"tags\": [\"AWS\", \"IAM\",
+    \"SAML\"],\n    \"external\": true\n  },\n  {\n    \"id\": \"aliyun-sso\",\n    \"name\":
+    \"阿里云访问入口\",\n    \"description\": \"进入阿里云 SSO，根据你的 Keycloak 角色属性查看可访问账号与角色。\",\n
+    \   \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\",\n
+    \   \"icon\": \"\U0001F300\",\n    \"badge\": \"Aliyun SSO\",\n    \"tabId\":
+    \"tab-cloud\",\n    \"requiredAttributesAny\": [\"aliyunRole\"],\n    \"groupsAny\":
+    [\"aliyun\", \"aliyun-access\", \"devops\", \"platform\", \"cloud-admin\"],\n
+    \   \"tags\": [\"Aliyun\", \"RAM\", \"SAML\"],\n    \"external\": true\n  },\n
+    \ {\n    \"id\": \"cloudflare\",\n    \"name\": \"Cloudflare Dashboard\",\n    \"description\":
+    \"输入企业邮箱完成登陆，需邀请\",\n    \"href\": \"https://dash.cloudflare.com/\",\n    \"icon\":
+    \"\U0001F6E1\",\n    \"badge\": \"Cloudflare\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"groupsAny\": [\"cloudflare\"],\n    \"tags\": [\"Cloudflare\", \"Zero Trust\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"zoho-mail\",\n    \"name\": \"Zoho
+    Mail\",\n    \"description\": \"输入企业邮箱即可完成SSO登陆\",\n    \"href\": \"https://mail.zoho.eu/zm/\",\n
+    \   \"icon\": \"✉️\",\n    \"badge\": \"Mail\",\n    \"tabId\": \"tab-cloud\",\n
+    \   \"tags\": [\"Zoho\", \"Mail\", \"SSO\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-logs\",\n    \"name\": \"日志查询\",\n    \"description\": \"国际盘美国生产环境日志查询入口。\",\n
+    \   \"href\": \"https://vilogs-us.vpbet.eu.com/\",\n    \"icon\": \"\U0001F4DC\",\n
+    \   \"badge\": \"Logs\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"us-prod\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"Logs\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"us-prod-grafana\",\n    \"name\": \"Grafana\",\n    \"description\":
+    \"国际盘美国生产环境 Grafana 监控入口。\",\n    \"href\": \"https://grafana-us.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4CA\",\n    \"badge\": \"Grafana\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"Grafana\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"us-prod-nacos\",\n    \"name\":
+    \"Nacos\",\n    \"description\": \"国际盘美国生产环境 Nacos 管理入口。\",\n    \"href\": \"https://nacos-us.vpbet.eu.com/nacos\",\n
+    \   \"icon\": \"\U0001F9E9\",\n    \"badge\": \"Nacos\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"Nacos\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"us-prod-skywalking\",\n    \"name\":
+    \"SkyWalking\",\n    \"description\": \"国际盘美国生产环境 SkyWalking 观测入口。\",\n    \"href\":
+    \"https://sky-us.vpbet.eu.com/\",\n    \"icon\": \"\U0001F6F0️\",\n    \"badge\":
+    \"SkyWalking\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"us-prod\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"SkyWalking\"],\n    \"external\": true\n  },\n
+    \ {\n    \"id\": \"us-prod-tidb\",\n    \"name\": \"TiDB\",\n    \"description\":
+    \"国际盘美国生产环境 TiDB Dashboard。\",\n    \"href\": \"https://tidbus.vpbet.eu.com/dashboard/\",\n
+    \   \"icon\": \"\U0001F5C4️\",\n    \"badge\": \"TiDB\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"TiDB\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"us-prod-tidb-grafana\",\n    \"name\":
+    \"TiDB Grafana\",\n    \"description\": \"国际盘美国生产环境 TiDB Grafana 监控入口。\",\n    \"href\":
+    \"https://tidbus-grafana.vpbet.eu.com/\",\n    \"icon\": \"\U0001F4C8\",\n    \"badge\":
+    \"Grafana\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"us-prod\",\n
+    \   \"tags\": [\"US\", \"Prod\", \"TiDB\", \"Grafana\"],\n    \"external\": true\n
+    \ },\n  {\n    \"id\": \"us-prod-pg91\",\n    \"name\": \"PG91\",\n    \"description\":
+    \"国际盘美国生产环境 PG91 管理入口。\",\n    \"href\": \"https://tgbot-admin.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F5C3️\",\n    \"badge\": \"PG91\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"PG91\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"us-prod-dump\",\n    \"name\":
+    \"Dump 文件获取\",\n    \"description\": \"国际盘美国生产环境 Dump 文件获取入口。\",\n    \"href\":
+    \"https://dumpus.vpbet.eu.com/\",\n    \"icon\": \"\U0001F4E6\",\n    \"badge\":
+    \"Dump\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"us-prod\",\n    \"tags\":
+    [\"US\", \"Prod\", \"Dump\"],\n    \"external\": true\n  },\n  {\n    \"id\":
+    \"us-prod-mq-admin\",\n    \"name\": \"MQ 管理后台\",\n    \"description\": \"国际盘美国生产环境
+    MQ 管理后台入口。\",\n    \"href\": \"https://area-mq-us.vpbet.eu.com/\",\n    \"icon\":
+    \"\U0001F4E8\",\n    \"badge\": \"MQ\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\":
+    \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"MQ\"],\n    \"external\": true\n
+    \ },\n  {\n    \"id\": \"us-prod-xxl-job-admin\",\n    \"name\": \"XXL-Job Admin\",\n
+    \   \"description\": \"国际盘美国生产环境 XXL-Job Admin 入口。\",\n    \"href\": \"https://jobadmin-us.vpbet.eu.com/xxl-job-admin/toLogin\",\n
+    \   \"icon\": \"⏰\",\n    \"badge\": \"XXL-Job\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"us-prod\",\n    \"tags\": [\"US\", \"Prod\", \"XXL-Job\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-area-mq-admin\",\n    \"name\":
+    \"AREA MQ管理后台\",\n    \"description\": \"国际盘新加坡生产 AREA MQ 管理后台。\",\n    \"href\":
+    \"https://area-mq-sgp.vpbet.eu.com/\",\n    \"icon\": \"\U0001F4E8\",\n    \"badge\":
+    \"MQ\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"sg-prod\",\n    \"tags\":
+    [\"SG\", \"Prod\", \"AREA\", \"MQ\"],\n    \"external\": true\n  },\n  {\n    \"id\":
+    \"sg-prod-area-xxl-job-admin\",\n    \"name\": \"AREA XXL-JOB ADMIN\",\n    \"description\":
+    \"国际盘新加坡生产 AREA XXL-JOB ADMIN。\",\n    \"href\": \"https://jobadmin-sgp.vpbet.eu.com/xxl-job-admin/toLogin\",\n
+    \   \"icon\": \"⏰\",\n    \"badge\": \"XXL-Job\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"AREA\", \"XXL-Job\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-global-skywalking\",\n
+    \   \"name\": \"Global SkyWalking\",\n    \"description\": \"国际盘新加坡生产 Global SkyWalking。\",\n
+    \   \"href\": \"https://sky-global-sgp.vpbet.eu.com/\",\n    \"icon\": \"\U0001F6F0️\",\n
+    \   \"badge\": \"SkyWalking\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\":
+    \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Global\", \"SkyWalking\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-global-mq-admin\",\n
+    \   \"name\": \"Global MQ管理后台\",\n    \"description\": \"国际盘新加坡生产 Global MQ 管理后台。\",\n
+    \   \"href\": \"https://global-mq-sgp.vpbet.eu.com/\",\n    \"icon\": \"\U0001F4E8\",\n
+    \   \"badge\": \"MQ\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"sg-prod\",\n
+    \   \"tags\": [\"SG\", \"Prod\", \"Global\", \"MQ\"],\n    \"external\": true\n
+    \ },\n  {\n    \"id\": \"sg-prod-global-xxl-job-admin\",\n    \"name\": \"Global
+    XXL-JOB ADMIN\",\n    \"description\": \"国际盘新加坡生产 Global XXL-JOB ADMIN。\",\n    \"href\":
+    \"https://jobadmin-global-sgp.vpbet.eu.com/xxl-job-admin/toLogin\",\n    \"icon\":
+    \"⏰\",\n    \"badge\": \"XXL-Job\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\":
+    \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Global\", \"XXL-Job\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"sg-prod-area-skywalking\",\n    \"name\": \"AREA
+    SkyWalking\",\n    \"description\": \"国际盘新加坡生产 AREA SkyWalking。\",\n    \"href\":
+    \"https://sky-sgp.vpbet.eu.com/\",\n    \"icon\": \"\U0001F6F0️\",\n    \"badge\":
+    \"SkyWalking\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"sg-prod\",\n
+    \   \"tags\": [\"SG\", \"Prod\", \"AREA\", \"SkyWalking\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"sg-prod-nacos\",\n    \"name\": \"Nacos\",\n    \"description\":
+    \"国际盘新加坡生产 Nacos 管理入口。\",\n    \"href\": \"https://nacos-sgp.vpbet.eu.com/nacos\",\n
+    \   \"icon\": \"\U0001F9E9\",\n    \"badge\": \"Nacos\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Nacos\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-logs\",\n    \"name\":
+    \"日志系统\",\n    \"description\": \"国际盘新加坡生产日志系统。\",\n    \"href\": \"https://vilogs-sgp.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4DC\",\n    \"badge\": \"Logs\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Logs\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-grafana\",\n    \"name\":
+    \"Grafana\",\n    \"description\": \"国际盘新加坡生产 Grafana。\",\n    \"href\": \"https://grafana-sgp.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F4CA\",\n    \"badge\": \"Grafana\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Grafana\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-tidb\",\n    \"name\":
+    \"TIDB\",\n    \"description\": \"国际盘新加坡生产 TiDB Dashboard。\",\n    \"href\": \"https://tidbsg.vpbet.eu.com/dashboard/\",\n
+    \   \"icon\": \"\U0001F5C4️\",\n    \"badge\": \"TiDB\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"TiDB\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-tidb-grafana\",\n    \"name\":
+    \"TIDB Grafana\",\n    \"description\": \"国际盘新加坡生产 TiDB Grafana。\",\n    \"href\":
+    \"https://tidbsg-grafana.vpbet.eu.com/login\",\n    \"icon\": \"\U0001F4C8\",\n
+    \   \"badge\": \"Grafana\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\":
+    \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"TiDB\", \"Grafana\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"sg-prod-kafka-ui\",\n    \"name\": \"Kafka UI\",\n
+    \   \"description\": \"国际盘新加坡生产 Kafka UI。\",\n    \"href\": \"https://kafkaui.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F9F5\",\n    \"badge\": \"Kafka\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Kafka\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-redis-ui\",\n    \"name\":
+    \"Redis UI\",\n    \"description\": \"国际盘新加坡生产 Redis UI。\",\n    \"href\": \"https://redisui.vpbet.eu.com/\",\n
+    \   \"icon\": \"\U0001F7E5\",\n    \"badge\": \"Redis\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"Redis\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"sg-prod-global-dumps\",\n    \"name\":
+    \"Global-Dumps\",\n    \"description\": \"国际盘新加坡生产 Global Dumps 获取入口。\",\n    \"href\":
+    \"https://dumpsg.vpbet.eu.com/global/\",\n    \"icon\": \"\U0001F4E6\",\n    \"badge\":
+    \"Dump\",\n    \"tabId\": \"tab-intel\",\n    \"sectionId\": \"sg-prod\",\n    \"tags\":
+    [\"SG\", \"Prod\", \"Global\", \"Dump\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"sg-prod-area-dumps\",\n    \"name\": \"Area-Dumps\",\n    \"description\":
+    \"国际盘新加坡生产 Area Dumps 获取入口。\",\n    \"href\": \"https://dumpsg.vpbet.eu.com/area/\",\n
+    \   \"icon\": \"\U0001F4E6\",\n    \"badge\": \"Dump\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"sg-prod\",\n    \"tags\": [\"SG\", \"Prod\", \"AREA\", \"Dump\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"archery\",\n    \"name\": \"Archery\",\n
+    \   \"description\": \"国际盘其他环境 Archery 入口。\",\n    \"href\": \"https://archery.vpbet.eu.com/login/\",\n
+    \   \"icon\": \"\U0001F3F9\",\n    \"badge\": \"Archery\",\n    \"tabId\": \"tab-intel\",\n
+    \   \"sectionId\": \"others\",\n    \"tags\": [\"Other\", \"Archery\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"imperva\",\n    \"name\": \"Imperva\",\n    \"description\":
+    \"进入 Imperva，通过企业 SSO 登录。\",\n    \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\",\n
+    \   \"icon\": \"\U0001F6E1\",\n    \"badge\": \"SAML\",\n    \"tabId\": \"tab-ld\",\n
+    \   \"groupsAny\": [\"imperva\"],\n    \"tags\": [\"Imperva\", \"Security\", \"WAF\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"ld-elk\",\n    \"name\": \"LD-ELK\",\n
+    \   \"description\": \"LD 项目 ELK / Kibana 数据视图入口。\",\n    \"href\": \"http://18.163.52.188:5601/app/management/kibana/dataViews\",\n
+    \   \"icon\": \"\U0001F4DA\",\n    \"badge\": \"ELK\",\n    \"tabId\": \"tab-ld\",\n
+    \   \"tags\": [\"LD\", \"ELK\", \"Kibana\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"ld-grafana\",\n    \"name\": \"LD Grafana\",\n    \"description\":
+    \"LD 项目 Grafana 入口。\",\n    \"href\": \"http://18.166.172.135:3000/login\",\n
+    \   \"icon\": \"\U0001F4CA\",\n    \"badge\": \"Grafana\",\n    \"tabId\": \"tab-ld\",\n
+    \   \"tags\": [\"LD\", \"Grafana\", \"Monitoring\"],\n    \"external\": true\n
+    \ },\n  {\n    \"id\": \"ld-jenkins-prod\",\n    \"name\": \"Jenkins Prod\",\n
+    \   \"description\": \"LD 项目生产环境 Jenkins 入口。\",\n    \"href\": \"http://18.163.234.120:8085/\",\n
+    \   \"icon\": \"\U0001F6E0️\",\n    \"badge\": \"Jenkins\",\n    \"tabId\": \"tab-ld\",\n
+    \   \"tags\": [\"LD\", \"Jenkins\", \"Prod\"],\n    \"external\": true\n  },\n
+    \ {\n    \"id\": \"ld-jenkins-test\",\n    \"name\": \"Jenkins Test\",\n    \"description\":
+    \"LD 项目测试环境 Jenkins 入口。\",\n    \"href\": \"http://16.163.84.232:8085/\",\n    \"icon\":
+    \"\U0001F9EA\",\n    \"badge\": \"Jenkins\",\n    \"tabId\": \"tab-ld\",\n    \"tags\":
+    [\"LD\", \"Jenkins\", \"Test\"],\n    \"external\": true\n  },\n  {\n    \"id\":
+    \"ld-jumpserver\",\n    \"name\": \"JumpServer\",\n    \"description\": \"LD 项目
+    JumpServer 入口。\",\n    \"href\": \"http://18.143.121.68/\",\n    \"icon\": \"\U0001F5A5️\",\n
+    \   \"badge\": \"JumpServer\",\n    \"tabId\": \"tab-ld\",\n    \"tags\": [\"LD\",
+    \"JumpServer\", \"Ops\"],\n    \"external\": true\n  }\n]\n"
+  tabs.runtime.json: |
+    {
+      "defaultTabId": "tab-cloud",
+      "tabs": [
+        {
+          "id": "tab-cloud",
+          "name": "云设施",
+          "description": "云平台、账号体系与基础设施入口。",
+          "groupsAny": ["tab-cloud"]
+        },
+        {
+          "id": "tab-intel",
+          "name": "国际盘",
+          "description": "国际业务相关系统入口。",
+          "groupsAny": ["tab-intel"],
+          "sections": [
+            {
+              "id": "us-prod",
+              "name": "美国生产"
+            },
+            {
+              "id": "sg-prod",
+              "name": "新加坡生产"
+            },
+            {
+              "id": "us-test",
+              "name": "美国测试"
+            },
+            {
+              "id": "sg-test",
+              "name": "新加坡测试"
+            },
+            {
+              "id": "others",
+              "name": "其他"
+            }
+          ]
+        },
+        {
+          "id": "tab-ld",
+          "name": "LD项目",
+          "description": "LD 项目相关系统入口。",
+          "groupsAny": ["tab-ld"]
+        }
+      ]
+    }
+kind: ConfigMap
+metadata:
+  annotations:
+    freelens.app/resource-version: v1
+    kubectl.kubernetes.io/last-applied-configuration: "{\"apiVersion\":\"v1\",\"data\":{\"apps.runtime.json\":\"[\\n
+      \ {\\n    \\\"id\\\": \\\"aws-sso\\\",\\n    \\\"name\\\": \\\"AWS Access Portal\\\",\\n
+      \   \\\"description\\\": \\\"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\\\",\\n
+      \   \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\\\",\\n
+      \   \\\"icon\\\": \\\"☁️\\\",\\n    \\\"badge\\\": \\\"AWS SSO\\\",\\n    \\\"tabId\\\":
+      \\\"tab-cloud\\\",\\n    \\\"requiredAttributesAny\\\": [\\\"awsRole\\\"],\\n
+      \   \\\"groupsAny\\\": [\\\"aws\\\", \\\"aws-access\\\", \\\"devops\\\", \\\"platform\\\",
+      \\\"cloud-admin\\\"],\\n    \\\"tags\\\": [\\\"AWS\\\", \\\"IAM\\\", \\\"SAML\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"aliyun-sso\\\",\\n
+      \   \\\"name\\\": \\\"阿里云访问入口\\\",\\n    \\\"description\\\": \\\"进入阿里云 SSO，根据你的
+      Keycloak 角色属性查看可访问账号与角色。\\\",\\n    \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F300\\\",\\n    \\\"badge\\\": \\\"Aliyun SSO\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-cloud\\\",\\n    \\\"requiredAttributesAny\\\": [\\\"aliyunRole\\\"],\\n
+      \   \\\"groupsAny\\\": [\\\"aliyun\\\", \\\"aliyun-access\\\", \\\"devops\\\",
+      \\\"platform\\\", \\\"cloud-admin\\\"],\\n    \\\"tags\\\": [\\\"Aliyun\\\",
+      \\\"RAM\\\", \\\"SAML\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"cloudflare\\\",\\n    \\\"name\\\": \\\"Cloudflare Dashboard\\\",\\n    \\\"description\\\":
+      \\\"输入企业邮箱完成登陆，需邀请\\\",\\n    \\\"href\\\": \\\"https://dash.cloudflare.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E1\\\",\\n    \\\"badge\\\": \\\"Cloudflare\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-cloud\\\",\\n    \\\"groupsAny\\\": [\\\"cloudflare\\\"],\\n
+      \   \\\"tags\\\": [\\\"Cloudflare\\\", \\\"Zero Trust\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"zoho-mail\\\",\\n    \\\"name\\\": \\\"Zoho
+      Mail\\\",\\n    \\\"description\\\": \\\"输入企业邮箱即可完成SSO登陆\\\",\\n    \\\"href\\\":
+      \\\"https://mail.zoho.eu/zm/\\\",\\n    \\\"icon\\\": \\\"✉️\\\",\\n    \\\"badge\\\":
+      \\\"Mail\\\",\\n    \\\"tabId\\\": \\\"tab-cloud\\\",\\n    \\\"tags\\\": [\\\"Zoho\\\",
+      \\\"Mail\\\", \\\"SSO\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"us-prod-logs\\\",\\n    \\\"name\\\": \\\"日志查询\\\",\\n    \\\"description\\\":
+      \\\"国际盘美国生产环境日志查询入口。\\\",\\n    \\\"href\\\": \\\"https://vilogs-us.vpbet.eu.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F4DC\\\",\\n    \\\"badge\\\": \\\"Logs\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\", \\\"Logs\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-grafana\\\",\\n    \\\"name\\\":
+      \\\"Grafana\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境 Grafana 监控入口。\\\",\\n
+      \   \\\"href\\\": \\\"https://grafana-us.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4CA\\\",\\n    \\\"badge\\\": \\\"Grafana\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\":
+      [\\\"US\\\", \\\"Prod\\\", \\\"Grafana\\\"],\\n    \\\"external\\\": true\\n
+      \ },\\n  {\\n    \\\"id\\\": \\\"us-prod-nacos\\\",\\n    \\\"name\\\": \\\"Nacos\\\",\\n
+      \   \\\"description\\\": \\\"国际盘美国生产环境 Nacos 管理入口。\\\",\\n    \\\"href\\\":
+      \\\"https://nacos-us.vpbet.eu.com/nacos\\\",\\n    \\\"icon\\\": \\\"\U0001F9E9\\\",\\n
+      \   \\\"badge\\\": \\\"Nacos\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\",
+      \\\"Nacos\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"us-prod-skywalking\\\",\\n    \\\"name\\\": \\\"SkyWalking\\\",\\n    \\\"description\\\":
+      \\\"国际盘美国生产环境 SkyWalking 观测入口。\\\",\\n    \\\"href\\\": \\\"https://sky-us.vpbet.eu.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6F0️\\\",\\n    \\\"badge\\\": \\\"SkyWalking\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\", \\\"SkyWalking\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-tidb\\\",\\n    \\\"name\\\":
+      \\\"TiDB\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境 TiDB Dashboard。\\\",\\n
+      \   \\\"href\\\": \\\"https://tidbus.vpbet.eu.com/dashboard/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F5C4️\\\",\\n    \\\"badge\\\": \\\"TiDB\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\":
+      [\\\"US\\\", \\\"Prod\\\", \\\"TiDB\\\"],\\n    \\\"external\\\": true\\n  },\\n
+      \ {\\n    \\\"id\\\": \\\"us-prod-tidb-grafana\\\",\\n    \\\"name\\\": \\\"TiDB
+      Grafana\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境 TiDB Grafana 监控入口。\\\",\\n
+      \   \\\"href\\\": \\\"https://tidbus-grafana.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4C8\\\",\\n    \\\"badge\\\": \\\"Grafana\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\":
+      [\\\"US\\\", \\\"Prod\\\", \\\"TiDB\\\", \\\"Grafana\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-pg91\\\",\\n    \\\"name\\\":
+      \\\"PG91\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境 PG91 管理入口。\\\",\\n    \\\"href\\\":
+      \\\"https://tgbot-admin.vpbet.eu.com/\\\",\\n    \\\"icon\\\": \\\"\U0001F5C3️\\\",\\n
+      \   \\\"badge\\\": \\\"PG91\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\",
+      \\\"PG91\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-dump\\\",\\n
+      \   \\\"name\\\": \\\"Dump 文件获取\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境
+      Dump 文件获取入口。\\\",\\n    \\\"href\\\": \\\"https://dumpus.vpbet.eu.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F4E6\\\",\\n    \\\"badge\\\": \\\"Dump\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\", \\\"Dump\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-mq-admin\\\",\\n    \\\"name\\\":
+      \\\"MQ 管理后台\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境 MQ 管理后台入口。\\\",\\n
+      \   \\\"href\\\": \\\"https://area-mq-us.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4E8\\\",\\n    \\\"badge\\\": \\\"MQ\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\": [\\\"US\\\", \\\"Prod\\\",
+      \\\"MQ\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"us-prod-xxl-job-admin\\\",\\n
+      \   \\\"name\\\": \\\"XXL-Job Admin\\\",\\n    \\\"description\\\": \\\"国际盘美国生产环境
+      XXL-Job Admin 入口。\\\",\\n    \\\"href\\\": \\\"https://jobadmin-us.vpbet.eu.com/xxl-job-admin/toLogin\\\",\\n
+      \   \\\"icon\\\": \\\"⏰\\\",\\n    \\\"badge\\\": \\\"XXL-Job\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"us-prod\\\",\\n    \\\"tags\\\":
+      [\\\"US\\\", \\\"Prod\\\", \\\"XXL-Job\\\"],\\n    \\\"external\\\": true\\n
+      \ },\\n  {\\n    \\\"id\\\": \\\"sg-prod-area-mq-admin\\\",\\n    \\\"name\\\":
+      \\\"AREA MQ管理后台\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 AREA MQ 管理后台。\\\",\\n
+      \   \\\"href\\\": \\\"https://area-mq-sgp.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4E8\\\",\\n    \\\"badge\\\": \\\"MQ\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"AREA\\\", \\\"MQ\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"sg-prod-area-xxl-job-admin\\\",\\n    \\\"name\\\": \\\"AREA XXL-JOB ADMIN\\\",\\n
+      \   \\\"description\\\": \\\"国际盘新加坡生产 AREA XXL-JOB ADMIN。\\\",\\n    \\\"href\\\":
+      \\\"https://jobadmin-sgp.vpbet.eu.com/xxl-job-admin/toLogin\\\",\\n    \\\"icon\\\":
+      \\\"⏰\\\",\\n    \\\"badge\\\": \\\"XXL-Job\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"AREA\\\", \\\"XXL-Job\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n
+      \   \\\"id\\\": \\\"sg-prod-global-skywalking\\\",\\n    \\\"name\\\": \\\"Global
+      SkyWalking\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Global SkyWalking。\\\",\\n
+      \   \\\"href\\\": \\\"https://sky-global-sgp.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F6F0️\\\",\\n    \\\"badge\\\": \\\"SkyWalking\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\":
+      [\\\"SG\\\", \\\"Prod\\\", \\\"Global\\\", \\\"SkyWalking\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-global-mq-admin\\\",\\n    \\\"name\\\":
+      \\\"Global MQ管理后台\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Global MQ 管理后台。\\\",\\n
+      \   \\\"href\\\": \\\"https://global-mq-sgp.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4E8\\\",\\n    \\\"badge\\\": \\\"MQ\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"Global\\\", \\\"MQ\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"sg-prod-global-xxl-job-admin\\\",\\n    \\\"name\\\": \\\"Global XXL-JOB
+      ADMIN\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Global XXL-JOB ADMIN。\\\",\\n
+      \   \\\"href\\\": \\\"https://jobadmin-global-sgp.vpbet.eu.com/xxl-job-admin/toLogin\\\",\\n
+      \   \\\"icon\\\": \\\"⏰\\\",\\n    \\\"badge\\\": \\\"XXL-Job\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\":
+      [\\\"SG\\\", \\\"Prod\\\", \\\"Global\\\", \\\"XXL-Job\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-area-skywalking\\\",\\n    \\\"name\\\":
+      \\\"AREA SkyWalking\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 AREA SkyWalking。\\\",\\n
+      \   \\\"href\\\": \\\"https://sky-sgp.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F6F0️\\\",\\n    \\\"badge\\\": \\\"SkyWalking\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\":
+      [\\\"SG\\\", \\\"Prod\\\", \\\"AREA\\\", \\\"SkyWalking\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-nacos\\\",\\n    \\\"name\\\":
+      \\\"Nacos\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Nacos 管理入口。\\\",\\n    \\\"href\\\":
+      \\\"https://nacos-sgp.vpbet.eu.com/nacos\\\",\\n    \\\"icon\\\": \\\"\U0001F9E9\\\",\\n
+      \   \\\"badge\\\": \\\"Nacos\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"Nacos\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"sg-prod-logs\\\",\\n    \\\"name\\\": \\\"日志系统\\\",\\n    \\\"description\\\":
+      \\\"国际盘新加坡生产日志系统。\\\",\\n    \\\"href\\\": \\\"https://vilogs-sgp.vpbet.eu.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F4DC\\\",\\n    \\\"badge\\\": \\\"Logs\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\", \\\"Logs\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-grafana\\\",\\n    \\\"name\\\":
+      \\\"Grafana\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Grafana。\\\",\\n    \\\"href\\\":
+      \\\"https://grafana-sgp.vpbet.eu.com/\\\",\\n    \\\"icon\\\": \\\"\U0001F4CA\\\",\\n
+      \   \\\"badge\\\": \\\"Grafana\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"Grafana\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"sg-prod-tidb\\\",\\n    \\\"name\\\": \\\"TIDB\\\",\\n    \\\"description\\\":
+      \\\"国际盘新加坡生产 TiDB Dashboard。\\\",\\n    \\\"href\\\": \\\"https://tidbsg.vpbet.eu.com/dashboard/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F5C4️\\\",\\n    \\\"badge\\\": \\\"TiDB\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\", \\\"TiDB\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-tidb-grafana\\\",\\n    \\\"name\\\":
+      \\\"TIDB Grafana\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 TiDB Grafana。\\\",\\n
+      \   \\\"href\\\": \\\"https://tidbsg-grafana.vpbet.eu.com/login\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4C8\\\",\\n    \\\"badge\\\": \\\"Grafana\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\":
+      [\\\"SG\\\", \\\"Prod\\\", \\\"TiDB\\\", \\\"Grafana\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-kafka-ui\\\",\\n    \\\"name\\\":
+      \\\"Kafka UI\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Kafka UI。\\\",\\n
+      \   \\\"href\\\": \\\"https://kafkaui.vpbet.eu.com/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F9F5\\\",\\n    \\\"badge\\\": \\\"Kafka\\\",\\n    \\\"tabId\\\":
+      \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\":
+      [\\\"SG\\\", \\\"Prod\\\", \\\"Kafka\\\"],\\n    \\\"external\\\": true\\n  },\\n
+      \ {\\n    \\\"id\\\": \\\"sg-prod-redis-ui\\\",\\n    \\\"name\\\": \\\"Redis
+      UI\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产 Redis UI。\\\",\\n    \\\"href\\\":
+      \\\"https://redisui.vpbet.eu.com/\\\",\\n    \\\"icon\\\": \\\"\U0001F7E5\\\",\\n
+      \   \\\"badge\\\": \\\"Redis\\\",\\n    \\\"tabId\\\": \\\"tab-intel\\\",\\n
+      \   \\\"sectionId\\\": \\\"sg-prod\\\",\\n    \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\",
+      \\\"Redis\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"sg-prod-global-dumps\\\",\\n    \\\"name\\\": \\\"Global-Dumps\\\",\\n    \\\"description\\\":
+      \\\"国际盘新加坡生产 Global Dumps 获取入口。\\\",\\n    \\\"href\\\": \\\"https://dumpsg.vpbet.eu.com/global/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F4E6\\\",\\n    \\\"badge\\\": \\\"Dump\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\", \\\"Global\\\", \\\"Dump\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"sg-prod-area-dumps\\\",\\n
+      \   \\\"name\\\": \\\"Area-Dumps\\\",\\n    \\\"description\\\": \\\"国际盘新加坡生产
+      Area Dumps 获取入口。\\\",\\n    \\\"href\\\": \\\"https://dumpsg.vpbet.eu.com/area/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F4E6\\\",\\n    \\\"badge\\\": \\\"Dump\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"sg-prod\\\",\\n
+      \   \\\"tags\\\": [\\\"SG\\\", \\\"Prod\\\", \\\"AREA\\\", \\\"Dump\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"archery\\\",\\n
+      \   \\\"name\\\": \\\"Archery\\\",\\n    \\\"description\\\": \\\"国际盘其他环境 Archery
+      入口。\\\",\\n    \\\"href\\\": \\\"https://archery.vpbet.eu.com/login/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F3F9\\\",\\n    \\\"badge\\\": \\\"Archery\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-intel\\\",\\n    \\\"sectionId\\\": \\\"others\\\",\\n
+      \   \\\"tags\\\": [\\\"Other\\\", \\\"Archery\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"imperva\\\",\\n    \\\"name\\\": \\\"Imperva\\\",\\n
+      \   \\\"description\\\": \\\"进入 Imperva，通过企业 SSO 登录。\\\",\\n    \\\"href\\\":
+      \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E1\\\",\\n    \\\"badge\\\": \\\"SAML\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-ld\\\",\\n    \\\"groupsAny\\\": [\\\"imperva\\\"],\\n
+      \   \\\"tags\\\": [\\\"Imperva\\\", \\\"Security\\\", \\\"WAF\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"ld-elk\\\",\\n    \\\"name\\\": \\\"LD-ELK\\\",\\n
+      \   \\\"description\\\": \\\"LD 项目 ELK / Kibana 数据视图入口。\\\",\\n    \\\"href\\\":
+      \\\"http://18.163.52.188:5601/app/management/kibana/dataViews\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4DA\\\",\\n    \\\"badge\\\": \\\"ELK\\\",\\n    \\\"tabId\\\": \\\"tab-ld\\\",\\n
+      \   \\\"tags\\\": [\\\"LD\\\", \\\"ELK\\\", \\\"Kibana\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"ld-grafana\\\",\\n    \\\"name\\\":
+      \\\"LD Grafana\\\",\\n    \\\"description\\\": \\\"LD 项目 Grafana 入口。\\\",\\n
+      \   \\\"href\\\": \\\"http://18.166.172.135:3000/login\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F4CA\\\",\\n    \\\"badge\\\": \\\"Grafana\\\",\\n    \\\"tabId\\\":
+      \\\"tab-ld\\\",\\n    \\\"tags\\\": [\\\"LD\\\", \\\"Grafana\\\", \\\"Monitoring\\\"],\\n
+      \   \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"ld-jenkins-prod\\\",\\n
+      \   \\\"name\\\": \\\"Jenkins Prod\\\",\\n    \\\"description\\\": \\\"LD 项目生产环境
+      Jenkins 入口。\\\",\\n    \\\"href\\\": \\\"http://18.163.234.120:8085/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E0️\\\",\\n    \\\"badge\\\": \\\"Jenkins\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-ld\\\",\\n    \\\"tags\\\": [\\\"LD\\\", \\\"Jenkins\\\",
+      \\\"Prod\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"ld-jenkins-test\\\",\\n
+      \   \\\"name\\\": \\\"Jenkins Test\\\",\\n    \\\"description\\\": \\\"LD 项目测试环境
+      Jenkins 入口。\\\",\\n    \\\"href\\\": \\\"http://16.163.84.232:8085/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F9EA\\\",\\n    \\\"badge\\\": \\\"Jenkins\\\",\\n
+      \   \\\"tabId\\\": \\\"tab-ld\\\",\\n    \\\"tags\\\": [\\\"LD\\\", \\\"Jenkins\\\",
+      \\\"Test\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\": \\\"ld-jumpserver\\\",\\n
+      \   \\\"name\\\": \\\"JumpServer\\\",\\n    \\\"description\\\": \\\"LD 项目 JumpServer
+      入口。\\\",\\n    \\\"href\\\": \\\"http://18.143.121.68/\\\",\\n    \\\"icon\\\":
+      \\\"\U0001F5A5️\\\",\\n    \\\"badge\\\": \\\"JumpServer\\\",\\n    \\\"tabId\\\":
+      \\\"tab-ld\\\",\\n    \\\"tags\\\": [\\\"LD\\\", \\\"JumpServer\\\", \\\"Ops\\\"],\\n
+      \   \\\"external\\\": true\\n  }\\n]\\n\",\"tabs.runtime.json\":\"{\\n  \\\"defaultTabId\\\":
+      \\\"tab-cloud\\\",\\n  \\\"tabs\\\": [\\n    {\\n      \\\"id\\\": \\\"tab-cloud\\\",\\n
+      \     \\\"name\\\": \\\"云设施\\\",\\n      \\\"description\\\": \\\"云平台、账号体系与基础设施入口。\\\",\\n
+      \     \\\"groupsAny\\\": [\\\"tab-cloud\\\"]\\n    },\\n    {\\n      \\\"id\\\":
+      \\\"tab-intel\\\",\\n      \\\"name\\\": \\\"国际盘\\\",\\n      \\\"description\\\":
+      \\\"国际业务相关系统入口。\\\",\\n      \\\"groupsAny\\\": [\\\"tab-intel\\\"],\\n      \\\"sections\\\":
+      [\\n        {\\n          \\\"id\\\": \\\"us-prod\\\",\\n          \\\"name\\\":
+      \\\"美国生产\\\"\\n        },\\n        {\\n          \\\"id\\\": \\\"sg-prod\\\",\\n
+      \         \\\"name\\\": \\\"新加坡生产\\\"\\n        },\\n        {\\n          \\\"id\\\":
+      \\\"us-test\\\",\\n          \\\"name\\\": \\\"美国测试\\\"\\n        },\\n        {\\n
+      \         \\\"id\\\": \\\"sg-test\\\",\\n          \\\"name\\\": \\\"新加坡测试\\\"\\n
+      \       },\\n        {\\n          \\\"id\\\": \\\"others\\\",\\n          \\\"name\\\":
+      \\\"其他\\\"\\n        }\\n      ]\\n    },\\n    {\\n      \\\"id\\\": \\\"tab-ld\\\",\\n
+      \     \\\"name\\\": \\\"LD项目\\\",\\n      \\\"description\\\": \\\"LD 项目相关系统入口。\\\",\\n
+      \     \\\"groupsAny\\\": [\\\"tab-ld\\\"]\\n    }\\n  ]\\n}\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{},\"name\":\"access-portal-apps\",\"namespace\":\"keycloak\"}}\n"
+  creationTimestamp: "2026-03-31T14:15:14Z"
+  name: access-portal-apps
+  namespace: keycloak
+  resourceVersion: "34299883"
+  uid: 43a7dcd9-fd77-4586-9dca-6019b1c9e523

@@ -1,0 +1,61 @@
+apiVersion: v1
+data:
+  apps.runtime.json: "[\n  {\n    \"id\": \"aws-sso\",\n    \"name\": \"AWS Access
+    Portal\",\n    \"description\": \"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\",\n
+    \   \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\",\n
+    \   \"icon\": \"☁️\",\n    \"badge\": \"AWS SSO\",\n    \"requiredAttributesAny\":
+    [\"awsRole\"],\n    \"groupsAny\": [\"aws\", \"aws-access\", \"devops\", \"platform\",
+    \"cloud-admin\"],\n    \"tags\": [\"AWS\", \"IAM\", \"SAML\"],\n    \"external\":
+    true\n  },\n  {\n    \"id\": \"aliyun-sso\",\n    \"name\": \"阿里云访问入口\",\n    \"description\":
+    \"进入阿里云 SSO，根据你的 Keycloak 角色属性查看可访问账号与角色。\",\n    \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\",\n
+    \   \"icon\": \"\U0001F300\",\n    \"badge\": \"Aliyun SSO\",\n    \"requiredAttributesAny\":
+    [\"aliyunRole\"],\n    \"groupsAny\": [\"aliyun\", \"aliyun-access\", \"devops\",
+    \"platform\", \"cloud-admin\"],\n    \"tags\": [\"Aliyun\", \"RAM\", \"SAML\"],\n
+    \   \"external\": true\n  },\n  {\n    \"id\": \"cloudflare\",\n    \"name\":
+    \"Cloudflare Dashboard\",\n    \"description\": \"输入企业邮箱完成登陆，需邀请\",\n    \"href\":
+    \"https://dash.cloudflare.com/\",\n    \"icon\": \"\U0001F6E1️\",\n    \"badge\":
+    \"Cloudflare\",\n    \"groupsAny\": [\"cloudflare\"],\n    \"tags\": [\"Cloudflare\",
+    \"Zero Trust\"],\n    \"external\": true\n  },\n  {\n    \"id\": \"zoho-mail\",\n
+    \   \"name\": \"Zoho Mail\",\n    \"description\": \"输入企业邮箱即可完成SSO登陆\",\n    \"href\":
+    \"https://mail.zoho.eu/zm/\",\n    \"icon\": \"✉️\",\n    \"badge\": \"Mail\",\n
+    \   \"tags\": [\"Zoho\", \"Mail\", \"SSO\"],\n    \"external\": true\n  },\n  {\n
+    \   \"id\": \"imperva\",\n    \"name\": \"Imperva\",\n    \"description\": \"进入
+    Imperva，通过企业 SSO 登录。\",\n    \"href\": \"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\",\n
+    \   \"icon\": \"\U0001F6E1️\",\n    \"badge\": \"SAML\",\n    \"groupsAny\": [\"imperva\"],\n
+    \   \"tags\": [\"Imperva\", \"Security\", \"WAF\"],\n    \"external\": true\n
+    \ }\n]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: "{\"apiVersion\":\"v1\",\"data\":{\"apps.runtime.json\":\"[\\n
+      \ {\\n    \\\"id\\\": \\\"aws-sso\\\",\\n    \\\"name\\\": \\\"AWS Access Portal\\\",\\n
+      \   \\\"description\\\": \\\"进入 AWS SSO，根据你的 Keycloak 角色属性查看可访问账户与角色。\\\",\\n
+      \   \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aws\\\",\\n
+      \   \\\"icon\\\": \\\"☁️\\\",\\n    \\\"badge\\\": \\\"AWS SSO\\\",\\n    \\\"requiredAttributesAny\\\":
+      [\\\"awsRole\\\"],\\n    \\\"groupsAny\\\": [\\\"aws\\\", \\\"aws-access\\\",
+      \\\"devops\\\", \\\"platform\\\", \\\"cloud-admin\\\"],\\n    \\\"tags\\\":
+      [\\\"AWS\\\", \\\"IAM\\\", \\\"SAML\\\"],\\n    \\\"external\\\": true\\n  },\\n
+      \ {\\n    \\\"id\\\": \\\"aliyun-sso\\\",\\n    \\\"name\\\": \\\"阿里云访问入口\\\",\\n
+      \   \\\"description\\\": \\\"进入阿里云 SSO，根据你的 Keycloak 角色属性查看可访问账号与角色。\\\",\\n
+      \   \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/aliyun\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F300\\\",\\n    \\\"badge\\\": \\\"Aliyun SSO\\\",\\n
+      \   \\\"requiredAttributesAny\\\": [\\\"aliyunRole\\\"],\\n    \\\"groupsAny\\\":
+      [\\\"aliyun\\\", \\\"aliyun-access\\\", \\\"devops\\\", \\\"platform\\\", \\\"cloud-admin\\\"],\\n
+      \   \\\"tags\\\": [\\\"Aliyun\\\", \\\"RAM\\\", \\\"SAML\\\"],\\n    \\\"external\\\":
+      true\\n  },\\n  {\\n    \\\"id\\\": \\\"cloudflare\\\",\\n    \\\"name\\\":
+      \\\"Cloudflare Dashboard\\\",\\n    \\\"description\\\": \\\"进入 Cloudflare 官方控制台，通过企业
+      SSO 完成身份校验。\\\",\\n    \\\"href\\\": \\\"https://dash.cloudflare.com/\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E1️\\\",\\n    \\\"badge\\\": \\\"Cloudflare\\\",\\n
+      \   \\\"groupsAny\\\": [\\\"cloudflare\\\", \\\"cloudflare-access\\\", \\\"devops\\\",
+      \\\"platform\\\", \\\"cloud-admin\\\"],\\n    \\\"tags\\\": [\\\"Cloudflare\\\",
+      \\\"Zero Trust\\\"],\\n    \\\"external\\\": true\\n  },\\n  {\\n    \\\"id\\\":
+      \\\"imperva\\\",\\n    \\\"name\\\": \\\"Imperva\\\",\\n    \\\"description\\\":
+      \\\"进入 Imperva，通过企业 SSO 登录。\\\",\\n    \\\"href\\\": \\\"https://auth.optlink.top/realms/devops/protocol/saml/clients/imperva\\\",\\n
+      \   \\\"icon\\\": \\\"\U0001F6E1️\\\",\\n    \\\"badge\\\": \\\"SAML\\\",\\n
+      \   \\\"groupsAny\\\": [\\\"imperva\\\"],\\n    \\\"tags\\\": [\\\"Imperva\\\",
+      \\\"Security\\\", \\\"WAF\\\"],\\n    \\\"external\\\": true\\n  }\\n]\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{},\"name\":\"access-portal-apps\",\"namespace\":\"keycloak\"}}\n"
+  creationTimestamp: "2026-03-31T14:15:14Z"
+  name: access-portal-apps
+  namespace: keycloak
+  resourceVersion: "32682119"
+  uid: 43a7dcd9-fd77-4586-9dca-6019b1c9e523

@@ -2,10 +2,17 @@ import fs from "node:fs";
 import path from "node:path";
 import { hasAttributeValue, type UserAttributes } from "@/lib/user-attributes";
 
+export type PortalTabSection = {
+  id: string;
+  name: string;
+  description?: string;
+};
+
 export type PortalTab = {
   id: string;
   name: string;
   description?: string;
+  sections?: PortalTabSection[];
   groupsAny?: string[];
   groupsAll?: string[];
   requiredAttributesAny?: string[];
@@ -19,6 +26,7 @@ export type PortalApp = {
   icon: string;
   badge?: string;
   tabId?: string;
+  sectionId?: string;
   groupsAny?: string[];
   groupsAll?: string[];
   requiredAttributesAny?: string[];
@@ -38,16 +46,19 @@ const fallbackTabsConfig: PortalTabsConfig = {
       id: "cloud-infra",
       name: "云设施",
       description: "云平台、账号体系与基础设施入口。",
+      sections: [{ id: "default", name: "默认" }],
     },
     {
       id: "intl-business",
       name: "国际盘",
       description: "国际业务相关系统入口。",
+      sections: [{ id: "default", name: "默认" }],
     },
     {
       id: "ld-project",
       name: "LD项目",
       description: "LD 项目相关系统入口。",
+      sections: [{ id: "default", name: "默认" }],
     },
   ],
 };
@@ -169,12 +180,27 @@ function matchesVisibilityRules(
   const groupsAll = item.groupsAll?.map(normalize) ?? [];
   const requiredAttributesAny = item.requiredAttributesAny ?? [];
 
+  const hasGroupRules = groupsAny.length > 0 || groupsAll.length > 0;
+  const hasAttributeRules = requiredAttributesAny.length > 0;
+
   const anyMatched = groupsAny.length === 0 || groupsAny.some((group) => normalizedGroups.includes(group));
   const allMatched = groupsAll.length === 0 || groupsAll.every((group) => normalizedGroups.includes(group));
-  const attributeMatched =
-    requiredAttributesAny.length === 0 || requiredAttributesAny.some((key) => hasAttributeValue(userAttributes, key));
+  const groupMatched = anyMatched && allMatched;
+  const attributeMatched = requiredAttributesAny.some((key) => hasAttributeValue(userAttributes, key));
 
-  return attributeMatched || (anyMatched && allMatched);
+  if (hasGroupRules && hasAttributeRules) {
+    return groupMatched || attributeMatched;
+  }
+
+  if (hasGroupRules) {
+    return groupMatched;
+  }
+
+  if (hasAttributeRules) {
+    return attributeMatched;
+  }
+
+  return true;
 }
 
 export function getVisibleTabs(userGroups: string[], userAttributes: UserAttributes = {}) {

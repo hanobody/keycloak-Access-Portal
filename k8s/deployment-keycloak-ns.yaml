@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: doctor8181/access-portal:imperva-v1-c35b37f
+          image: doctor8181/access-portal:tab-sections-test
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
